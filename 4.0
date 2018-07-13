@@ -1,0 +1,55 @@
+//A variavel "int i" já nao faz sentido colocar já que sempre vai ser 0 na posição inicial.
+
+import java.util.Scanner;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		System.out.println("Digite o processo");
+		String processoinput = input.next(); // processo recebido
+		System.out.println("Digite o quantum");
+		int quantum = input.nextInt();
+		int containput = 0; // contador do processo recebido
+		String inicia = "sim";
+
+		/*try {*/
+		while(inicia == "sim"){		
+
+			for (int i = quantum; i > 0; i--) {
+				System.out.println(i);
+				if (processoinput.isEmpty()) {
+          System.out.println("Deseja iniciar outro processo? Digite Sim ou Nao ");
+					inicia = input.next();
+				} else {
+					System.out.println(processoinput + processoinput.length());
+					if (processoinput.charAt(0) == 'A') { // Posição
+																							// zero.
+						processoinput = processoinput.replaceFirst("A", "");
+					  }else if (processoinput.charAt(0) == 'C') {
+							processoinput = processoinput.replaceFirst("C", "");
+							//String parada = input.next();
+						
+					} else if (processoinput.charAt(0) == 'B') {
+						processoinput = processoinput.replaceFirst("B", "A");
+						}else if (processoinput.charAt(0) == 'D') {
+							processoinput = processoinput.replaceFirst("D", "C");
+							//String parada = input.next();
+						
+					}
+				}
+			}
+		}
+		
+		/*}catch(StringIndexOutOfBoundsException e){
+			System.out.println("Deseja iniciar outro processo? Digite Sim ou Nao ");
+			inicia = input.next();
+			
+			if (inicia == "sim"){
+				quantum = processoinput.length();
+			}else{
+				
+			
+		}*/
+		}
+	}
