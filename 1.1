@@ -1,0 +1,100 @@
+//A variavel "int i" já nao faz sentido colocar já que sempre vai ser 0 na posição inicial.
+
+import java.util.ArrayList;
+import  java.util.Scanner;
+import java.util.Random;
+
+public class SistemasOp {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Random rand = new Random();
+        int inicia = 1;
+        int c;
+        int contaciclo = 0;
+        ArrayList<String> list = new ArrayList();
+        /*try {*/
+        while (inicia == 1) {
+
+            System.out.println("Digite o processo");
+            String processoinput = input.next(); // processo recebido
+            System.out.println("Digite o nome do novo processo");
+            String nomeprocesso = input.next();
+            System.out.println("Digite o quantum");
+            int quantum = input.nextInt();
+            
+            int containput = 0; // contador do processo recebido
+            System.out.println("Processo "+ rand.nextInt(50) +" criado");
+            c=rand.nextInt(50);
+            System.out.println("Iniciando simulação de execução do processo…");
+
+            for (int i = quantum; i >= 0; i--) {
+                contaciclo++;
+                System.out.println("======================================");
+                System.out.println("| Gerenciador de processos.");
+                System.out.println("======================================");
+                System.out.println("| Contador de ciclo de execução: "+ contaciclo);
+                System.out.println("| Processos na fila de pronto(): "+c);
+                System.out.println("| Processos em execução: "+c);
+                System.out.println("|        Tempo restante: "+i);
+                System.out.println("|     Carga de trabalho: "+processoinput);
+                System.out.println("|   Processos esperando: "+c);
+                System.out.println("|     Carga de trabalho: "+processoinput.charAt(0));
+                System.out.println("| Processos finalizados: "+ list);
+                System.out.println("Processo " + c +" "+ nomeprocesso + " | Estado Atual: ");
+                System.out.println("Carga de trabalho: " + processoinput.charAt(0));
+                if (processoinput.charAt(0) == 'A' || processoinput.charAt(0) == 'B'){
+                    System.out.println("Próxima ação: Executar um ciclo de CPU");
+                }else{
+                System.out.println("Próxima ação: Aguardando um ciclo de E/S");
+                }
+                list.add(""+c);
+                System.out.println(i);
+                if (processoinput.isEmpty()) {
+                    
+                    System.out.println("Deseja iniciar outro processo? Digite 1 = Sim ou 2 = Nao ");
+                    inicia = input.nextInt();
+                    if (inicia != 1) {
+                        System.out.println("Fim do processo");
+                        break;
+                    }
+                } else {
+                    System.out.println(processoinput + processoinput.length());
+                    if (processoinput.charAt(0) == 'A') { // Posição
+                        // zero.
+                        processoinput = processoinput.replaceFirst("A", "");
+                    } else if (processoinput.charAt(0) == 'C') {
+                        processoinput = processoinput.replaceFirst("C", "");
+                        String parada = input.next();
+
+                    } else if (processoinput.charAt(0) == 'B') {
+                        processoinput = processoinput.replaceFirst("B", "A");
+                    } else if (processoinput.charAt(0) == 'D') {
+                        processoinput = processoinput.replaceFirst("D", "C");
+                        String parada = input.next();	
+                       
+                    }
+                }
+            }
+        }
+    }
+}
+/*System.out.println("======================================");
+System.out.println("| Gerenciador de processos.");
+System.out.println("======================================");
+System.out.println("| Contador de ciclo de execução: "+ i);
+System.out.println("| Processos na fila de pronto(): "+c);
+System.out.println("| Processos em execução: "+c);
+System.out.println("|        Tempo restante: ");
+System.out.println("|     Carga de trabalho: ");
+System.out.println("|   Processos esperando: ");
+System.out.println("|     Carga de trabalho: ");
+System.out.println("| Processos finalizados: ");
+System.out.println("======================================");
+System.out.println("Processo" + i + processoinput + "| Estado Atual: ");
+System.out.println("Carga de trabalho: " + processoinput.charAt(0);
+if processoinput.chartAt(0) == 'A' || processoinput.chartAt(0) == 'B'{
+    System.out.println("Próxima ação: Executar um ciclo de CPU";
+}else{
+System.out.println("Próxima ação: Aguardando um ciclo de E/S";
+}*/
